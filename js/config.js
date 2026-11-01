@@ -12,7 +12,7 @@ window.CONFIG = {
   email: "filipe.alves.sousa0510@gmail.com",
 
   // Endereços completos, começando com https://
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/filipe-alves-61849837b/",
   github: "https://github.com/mrg-exe",
 
   // Caminho da sua foto (ex.: "img/filipe.jpg"). Vazio = mostra a inicial "F".
