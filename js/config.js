@@ -13,7 +13,7 @@ window.CONFIG = {
 
   // Endereços completos, começando com https://
   linkedin: "",
-  github: "",
+  github: "https://github.com/mrg-exe",
 
   // Caminho da sua foto (ex.: "img/filipe.jpg"). Vazio = mostra a inicial "F".
   foto: ""
