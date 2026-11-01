@@ -4,12 +4,12 @@
 // ==========================================================
 window.CONFIG = {
   // Só números, com 55 + DDD + número. Exemplo: "5511987654321"
-  whatsapp: "",
+  whatsapp: "5511980213577",
 
   // Mensagem que já aparece escrita quando a pessoa abre o WhatsApp
   mensagemWhatsapp: "Olá, Filipe! Vi seu site e quero saber mais sobre sites e automações para o meu negócio.",
 
-  email: "",
+  email: "filipe.alves.sousa0510@gmail.com",
 
   // Endereços completos, começando com https://
   linkedin: "",
