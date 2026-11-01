@@ -1,0 +1,826 @@
+/* ==========================================================
+   Portfólio do Filipe: sites e automações com IA
+   Cores e medidas ficam nas variáveis abaixo: mude aqui e o site todo acompanha.
+   ========================================================== */
+
+:root {
+  --fundo: #EEF1F6;
+  --branco: #FFFFFF;
+  --tinta: #14213D;
+  --tinta-suave: #4A5672;
+  --cobalto: #2445D6;
+  --cobalto-escuro: #1A34A8;
+  --ambar: #FFB627;
+  --linha: #C9D1DE;
+
+  /* Só dentro do celular da demonstração */
+  --chat-fundo: #E9E4DC;
+  --chat-negocio: #D9FDD3;
+
+  --fonte: "Bricolage Grotesque", system-ui, sans-serif;
+  --largura: 1180px;
+  --margem: 16px;
+  --raio: 14px;
+}
+
+@media (min-width: 720px) {
+  :root { --margem: 32px; }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+/* Com o Lenis ligado, ele cuida da rolagem suave */
+html.lenis { scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-variation-settings: "opsz" 14;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.05;
+  font-stretch: 82%;
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; max-width: 62ch; }
+
+a { color: var(--cobalto); }
+
+:focus-visible {
+  outline: 3px solid var(--cobalto);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.pular {
+  position: absolute;
+  left: var(--margem);
+  top: -60px;
+  padding: 10px 16px;
+  background: var(--tinta);
+  color: var(--branco);
+  z-index: 10;
+  border-radius: 8px;
+}
+.pular:focus { top: 12px; }
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.85em 1.4em;
+  border: 2px solid var(--cobalto);
+  border-radius: 999px;
+  background: var(--cobalto);
+  color: var(--branco);
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.botao:hover { background: var(--cobalto-escuro); border-color: var(--cobalto-escuro); }
+
+.botao--linha { background: transparent; color: var(--cobalto); }
+.botao--linha:hover { background: var(--branco); border-color: var(--cobalto); }
+
+.botao--pequeno { padding: 0.5em 1em; font-size: 0.95rem; }
+
+.botao--claro { background: var(--branco); border-color: var(--branco); color: var(--tinta); }
+.botao--claro:hover { background: var(--fundo); border-color: var(--fundo); }
+
+.link-forte { font-weight: 650; text-underline-offset: 4px; }
+
+/* ---------- Topo ---------- */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(238, 241, 246, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linha);
+}
+
+.topo__dentro {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 12px var(--margem);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--tinta);
+  font-weight: 750;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.marca__icone {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--tinta);
+  color: var(--branco);
+  font-stretch: 75%;
+}
+
+.menu { display: none; gap: 24px; margin-left: auto; }
+.menu a { color: var(--tinta); text-decoration: none; font-weight: 500; }
+.menu a:hover { color: var(--cobalto); }
+
+.topo .botao { margin-left: auto; }
+
+@media (min-width: 860px) {
+  .menu { display: flex; }
+  .topo .botao { margin-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .topo .botao { font-size: 0.85rem; padding: 0.45em 0.8em; }
+}
+
+/* ---------- Seções ---------- */
+.secao, .abertura {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 88px var(--margem);
+}
+
+.secao + .secao { border-top: 1px solid var(--linha); }
+
+/* Os links do menu param abaixo do topo fixo */
+main > section { scroll-margin-top: 64px; }
+
+/* ---------- Abertura (o destaque da página) ---------- */
+.abertura {
+  display: grid;
+  gap: 56px;
+  align-items: center;
+  padding-top: 56px;
+}
+
+@media (min-width: 960px) {
+  .abertura { grid-template-columns: 1.2fr 0.8fr; padding-top: 88px; }
+}
+
+.abertura h1 {
+  font-size: clamp(2.6rem, 6.4vw, 5.2rem);
+  font-weight: 780;
+  font-stretch: 78%;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  margin-bottom: 0.45em;
+}
+
+.abertura__sub {
+  font-size: 1.25rem;
+  color: var(--tinta-suave);
+  max-width: 46ch;
+}
+
+.abertura__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* ---------- Demonstração no celular ---------- */
+.demo {
+  margin: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+}
+
+.celular {
+  border: 10px solid var(--tinta);
+  border-radius: 40px;
+  overflow: hidden;
+  background: var(--chat-fundo);
+  box-shadow: 0 30px 60px -20px rgba(20, 33, 61, 0.45);
+}
+
+.celular__barra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px 12px;
+  background: var(--tinta);
+  color: var(--branco);
+  line-height: 1.2;
+}
+.celular__barra strong { display: block; font-size: 0.98rem; }
+.celular__status { font-size: 0.8rem; opacity: 0.75; }
+
+.celular__avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 750;
+  font-size: 0.8rem;
+}
+
+.conversa {
+  list-style: none;
+  margin: 0;
+  padding: 16px 12px 20px;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.balao {
+  max-width: 82%;
+  padding: 8px 10px 6px;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+.balao time {
+  display: block;
+  text-align: right;
+  font-size: 0.7rem;
+  color: var(--tinta-suave);
+  margin-top: 2px;
+}
+.balao--cliente { align-self: flex-start; background: var(--branco); border-top-left-radius: 4px; }
+.balao--negocio { align-self: flex-end; background: var(--chat-negocio); border-top-right-radius: 4px; }
+
+.digitando {
+  align-self: flex-end;
+  display: flex;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--chat-negocio);
+  border-radius: 12px;
+}
+.digitando span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tinta-suave);
+  animation: pulo 1s infinite;
+}
+.digitando span:nth-child(2) { animation-delay: 0.15s; }
+.digitando span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes pulo {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.demo__nota {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+  line-height: 1.4;
+}
+
+.demo__sinal {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--ambar);
+  box-shadow: 0 0 0 5px rgba(255, 182, 39, 0.25);
+}
+
+.demo__repetir {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--cobalto);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+/* Com JavaScript a conversa acontece passo a passo; sem ele, tudo aparece de uma vez */
+.js [data-passo] { display: none; }
+.js [data-passo].aparece { display: flex; animation: entrar 0.35s ease-out; }
+.js .balao.aparece { display: block; }
+.js .demo.terminou .demo__repetir { visibility: visible; }
+/* A legenda guarda o espaço desde o início, para o texto do lado não "pular" */
+.js .demo__nota[data-passo] { display: flex; visibility: hidden; }
+.js .demo__nota[data-passo].aparece { visibility: visible; }
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js [data-passo].aparece, .digitando span { animation: none; }
+}
+
+/* ---------- Serviços: linhas, não cartões iguais ---------- */
+.servicos { border-top: 2px solid var(--tinta); }
+
+.servico {
+  display: grid;
+  gap: 12px 48px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+@media (min-width: 820px) {
+  .servico { grid-template-columns: 1fr 1.5fr; }
+}
+
+.servico h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+
+.servico ul { margin: 0; padding-left: 1.1em; color: var(--tinta-suave); }
+.servico li { margin-bottom: 0.25em; }
+.servico li::marker { color: var(--cobalto); }
+
+.servico--destaque {
+  margin: 0 calc(var(--margem) * -1);
+  padding: 32px var(--margem);
+  background: var(--branco);
+  border-bottom: 0;
+  border-radius: 0 0 var(--raio) var(--raio);
+}
+.servico--destaque h3 { color: var(--cobalto); }
+
+@media (min-width: 1244px) {
+  .servico--destaque { margin: 0 -32px; padding: 32px; }
+}
+
+/* ==========================================================
+   História da automação (bastidores, fundo escuro)
+   Sem JavaScript tudo aparece pronto; o js/animacoes.js esconde e anima.
+   ========================================================== */
+.historia {
+  background: var(--tinta);
+  color: var(--branco);
+  overflow: hidden;
+}
+
+.historia__dentro {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 72px var(--margem);
+}
+
+.historia h2 { margin-bottom: 0.6em; }
+
+.historia__passos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  counter-reset: passo;
+}
+
+.historia__passos li {
+  counter-increment: passo;
+  display: flex;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.historia__passos li::before {
+  content: counter(passo);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.historia__progresso {
+  display: none;
+  height: 3px;
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.historia__progresso span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--ambar);
+  border-radius: inherit;
+  transform-origin: left;
+}
+
+.historia__fim {
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--ambar);
+}
+
+/* ---------- A cena ---------- */
+.cena {
+  margin-top: 40px;
+  display: grid;
+  gap: 28px;
+  font-size: 15px;
+}
+
+.cena__linhas { display: none; }
+
+.no {
+  position: relative;
+  padding: 1em 1.1em;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* No celular, uma linha tracejada liga um bloco ao próximo */
+.no + .no::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -29px;
+  height: 28px;
+  border-left: 2px dashed rgba(255, 255, 255, 0.35);
+}
+
+.no__rotulo {
+  margin: 0 0 0.6em;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.campo {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 0.6em;
+  padding: 0.45em 0.7em;
+  border-radius: 8px;
+  background: var(--branco);
+  color: var(--tinta);
+  font-size: 0.92em;
+}
+.campo span { font-size: 0.75em; color: var(--tinta-suave); }
+.campo b { font-weight: 500; min-height: 1.4em; }
+.campo--grande b { min-height: 2.8em; }
+
+.no__botao {
+  display: inline-block;
+  padding: 0.4em 1.1em;
+  border-radius: 999px;
+  background: var(--cobalto);
+  font-size: 0.9em;
+  font-weight: 650;
+}
+
+.etiquetas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4em; }
+.etiqueta {
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.etiqueta--forte { background: var(--ambar); border-color: var(--ambar); color: var(--tinta); }
+
+.no__balao {
+  margin: 0;
+  padding: 0.55em 0.75em;
+  border-radius: 10px;
+  border-top-left-radius: 3px;
+  background: var(--chat-negocio);
+  color: var(--tinta);
+  font-size: 0.9em;
+  line-height: 1.35;
+}
+
+.no table { width: 100%; border-collapse: collapse; font-size: 0.82em; }
+.no th { text-align: left; font-weight: 600; color: rgba(255, 255, 255, 0.6); padding: 0 0.3em 0.3em 0; }
+.no td { padding: 0.25em 0.3em 0.25em 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.linha-nova td { color: var(--ambar); font-weight: 650; }
+
+.notificacao {
+  margin: 0;
+  padding: 0.6em 0.8em;
+  border-radius: 12px;
+  background: var(--branco);
+  color: var(--tinta);
+  font-size: 0.9em;
+  line-height: 1.35;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+}
+.notificacao b { display: block; }
+
+/* ---------- Desktop: diagrama com linhas, seção presa na tela ---------- */
+@media (min-width: 900px) {
+  .historia__dentro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .historia__passos { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .historia__progresso { display: block; }
+
+  .cena {
+    position: relative;
+    display: block;
+    width: min(100%, calc((100vh - 330px) * 1000 / 520));
+    aspect-ratio: 1000 / 520;
+    margin: 32px auto 0;
+    container-type: inline-size;
+  }
+
+  /* Tudo dentro da cena cresce junto com ela */
+  .cena .no { font-size: clamp(11px, 1.45cqi, 16px); }
+
+  .cena__linhas {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .cena__linhas path {
+    fill: none;
+    stroke: var(--ambar);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .cena .no { position: absolute; }
+  .no + .no::before { display: none; }
+
+  .no--form     { left: 0;   top: 21.15%; width: 29%; height: 57.7%; }
+  .no--ia       { left: 38%; top: 35.58%; width: 22%; height: 28.85%; }
+  .no--whats    { left: 70%; top: 0;      width: 30%; height: 28.85%; }
+  .no--planilha { left: 70%; top: 35.58%; width: 30%; height: 28.85%; }
+  .no--dono     { left: 70%; top: 71.15%; width: 30%; height: 28.85%; }
+
+  .no--ia { display: flex; flex-direction: column; justify-content: center; }
+
+  /* Quando o JavaScript anima: só a etapa atual fica acesa */
+  .historia--animada .historia__passos li { opacity: 0.35; }
+  .historia--animada .historia__passos li.ativo { opacity: 1; color: var(--branco); }
+}
+
+/* ---------- Projeto ---------- */
+.projeto {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .projeto { grid-template-columns: 1.15fr 0.85fr; gap: 56px; }
+}
+
+.projeto__imagens { position: relative; padding: 0 12% 12% 0; }
+
+.projeto__site {
+  border-radius: var(--raio);
+  border: 1px solid var(--linha);
+  box-shadow: 0 20px 40px -24px rgba(20, 33, 61, 0.4);
+}
+
+.projeto__app {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  border-radius: 12px;
+  border: 4px solid var(--tinta);
+  box-shadow: 0 20px 40px -16px rgba(20, 33, 61, 0.5);
+}
+
+.projeto__texto h3 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 0.4em; }
+.projeto__resumo { font-size: 1.15rem; }
+
+.projeto__feitos { padding-left: 1.1em; margin: 0 0 1.2em; }
+.projeto__feitos li { margin-bottom: 0.35em; }
+.projeto__feitos li::marker { color: var(--cobalto); }
+
+.projeto__tecnologias { font-size: 0.95rem; color: var(--tinta-suave); }
+
+/* ---------- Como funciona: sequência numerada ---------- */
+.etapas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 32px;
+  counter-reset: etapa;
+}
+
+@media (min-width: 720px) { .etapas { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .etapas { grid-template-columns: repeat(4, 1fr); } }
+
+/* A linha do topo de cada etapa é um fundo, para poder ser "desenhada" na rolagem */
+.etapas li {
+  counter-increment: etapa;
+  padding-top: 18px;
+  background: linear-gradient(var(--tinta), var(--tinta)) no-repeat left top / 100% 2px;
+}
+
+.etapas li::before {
+  content: counter(etapa);
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 780;
+  font-stretch: 75%;
+  line-height: 1;
+  color: var(--cobalto);
+  margin-bottom: 12px;
+}
+
+.etapas h3 { margin-bottom: 0.4em; }
+.etapas p { color: var(--tinta-suave); margin: 0; }
+
+/* ---------- Sobre ---------- */
+.sobre { display: grid; gap: 32px; align-items: center; }
+
+@media (min-width: 720px) {
+  .sobre { grid-template-columns: 200px 1fr; gap: 56px; }
+}
+
+.sobre__foto {
+  width: 200px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--tinta);
+  color: var(--branco);
+  font-size: 5rem;
+  font-weight: 780;
+  font-stretch: 75%;
+}
+.sobre__foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.sobre h2 { margin-bottom: 0.5em; }
+
+/* ---------- Contato ---------- */
+.contato {
+  margin: 40px auto 0;
+  max-width: var(--largura);
+  padding: 72px var(--margem);
+  background: var(--tinta);
+  color: var(--branco);
+  text-align: center;
+}
+
+@media (min-width: 1244px) { .contato { border-radius: 28px; } }
+
+.contato h2 { margin: 0 auto 0.5em; max-width: 18ch; }
+.contato p { margin: 0 auto 28px; color: rgba(255, 255, 255, 0.78); }
+.contato .botao { font-size: 1.1rem; }
+.contato :focus-visible { outline-color: var(--ambar); }
+
+.contato__links {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.contato__links a { color: var(--branco); text-underline-offset: 4px; }
+
+/* ==========================================================
+   Peças das animações (usadas pelo js/animacoes.js)
+   ========================================================== */
+
+/* Evita o topo "piscar" antes da animação de entrada */
+.anim-carregando .abertura__texto,
+.anim-carregando .demo { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-carregando .abertura__texto,
+  .anim-carregando .demo { opacity: 1; }
+}
+
+/* Títulos divididos em palavras: cada palavra sobe de dentro de uma "janela" */
+.palavra {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.palavra > span { display: inline-block; will-change: transform; }
+
+/* Celular do topo inclina com o mouse */
+.demo { perspective: 1200px; }
+.celular { transform-style: preserve-3d; will-change: transform; }
+
+/* Profundidade nos prints dos projetos */
+.projeto__imagens { perspective: 1400px; }
+.projeto__imagens > * { will-change: transform; }
+
+/* Preview que segue o cursor nos serviços */
+.preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  width: 260px;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--tinta);
+  box-shadow: 0 24px 50px -16px rgba(20, 33, 61, 0.55);
+  pointer-events: none;
+  visibility: hidden;
+}
+.preview__item { display: none; }
+.preview__item.ativo { display: block; }
+
+.mini-site { border-radius: 8px; overflow: hidden; background: var(--branco); }
+.mini-site__barra { display: flex; gap: 4px; padding: 6px 8px; background: #DDE3EC; }
+.mini-site__barra i { width: 6px; height: 6px; border-radius: 50%; background: var(--tinta-suave); opacity: 0.5; }
+.mini-site__corpo { padding: 12px; display: grid; gap: 6px; }
+.mini-site__linha { height: 8px; border-radius: 4px; background: #DDE3EC; }
+.mini-site__linha--titulo { height: 14px; width: 80%; background: var(--tinta); }
+.mini-site__linha--curta { width: 55%; }
+.mini-site__zap {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #25D366;
+  color: var(--branco);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mini-fluxo { display: flex; align-items: center; gap: 6px; color: var(--branco); font-size: 12px; font-weight: 650; }
+.mini-fluxo span { padding: 6px 9px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.3); }
+.mini-fluxo span.forte { background: var(--ambar); border-color: var(--ambar); color: var(--tinta); }
+.mini-fluxo i { flex: 1; height: 2px; background: var(--ambar); }
+.preview__item .mini-fluxo + .mini-site,
+.preview__item .mini-site + .mini-fluxo { margin-top: 10px; }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 32px var(--margem) 48px;
+  color: var(--tinta-suave);
+  font-size: 0.9rem;
+}

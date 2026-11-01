@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Filipe | Sites e automações com IA para pequenos negócios</title>
+  <meta name="description" content="Sites rápidos e automações com IA para pequenos negócios: seu cliente encontra você no Google, chama no WhatsApp e recebe resposta na hora.">
+  <meta property="og:title" content="Filipe | Sites e automações com IA">
+  <meta property="og:description" content="Sites e automações com IA para pequenos negócios.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#14213D">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script>
+    // "anim-carregando" esconde o topo até a animação de entrada começar.
+    // Se algo falhar, ele aparece sozinho depois de 2,5 s.
+    document.documentElement.classList.add("js", "anim-carregando");
+    setTimeout(function () { document.documentElement.classList.remove("anim-carregando"); }, 2500);
+  </script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="topo__dentro">
+      <a class="marca" href="#inicio" aria-label="Filipe, início">
+        <span class="marca__icone" aria-hidden="true">F</span>
+        <span>Filipe</span>
+      </a>
+      <nav class="menu" aria-label="Seções">
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+      <a class="botao botao--pequeno" data-whatsapp href="#contato">Chamar no WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- Topo: o produto funcionando -->
+    <section class="abertura" id="inicio">
+      <div class="abertura__texto">
+        <h1>Seu negócio respondendo clientes mesmo quando você está ocupado.</h1>
+        <p class="abertura__sub">Faço sites e automações com IA para pequenos negócios. Seu cliente encontra você no Google, chama no WhatsApp e recebe resposta na hora.</p>
+        <div class="abertura__acoes">
+          <a class="botao" data-whatsapp href="#contato">Chamar no WhatsApp</a>
+          <a class="botao botao--linha" href="#projetos">Ver projetos</a>
+        </div>
+      </div>
+
+      <figure class="demo" aria-label="Demonstração: um cliente pede horário e recebe resposta automática">
+        <div class="celular">
+          <div class="celular__barra">
+            <span class="celular__avatar" aria-hidden="true">BS</span>
+            <span>
+              <strong>Barbearia do Sul</strong>
+              <small class="celular__status" data-status>online</small>
+            </span>
+          </div>
+          <ol class="conversa" data-conversa>
+            <li class="balao balao--cliente" data-passo="1">Oi! Tem horário sábado de manhã?<time>09:41</time></li>
+            <li class="digitando" data-passo="2" aria-hidden="true"><span></span><span></span><span></span></li>
+            <li class="balao balao--negocio" data-passo="3">Oi, Lucas! Sábado temos <b>9h</b> e <b>10h30</b> livres. Qual fica melhor?<time>09:41</time></li>
+            <li class="balao balao--cliente" data-passo="4">10h30 😄<time>09:42</time></li>
+            <li class="balao balao--negocio" data-passo="5">Marcado! Corte com o Rafa, sábado às 10h30. Mando um lembrete na sexta 👍<time>09:42</time></li>
+          </ol>
+        </div>
+        <figcaption class="demo__nota" data-passo="6">
+          <span class="demo__sinal" aria-hidden="true"></span>
+          Exemplo de automação: respondido e agendado sozinho, sem o dono parar o corte.
+        </figcaption>
+        <button class="demo__repetir" type="button" data-repetir>Ver de novo</button>
+      </figure>
+    </section>
+
+    <!-- Serviços -->
+    <section class="secao" id="servicos" aria-labelledby="t-servicos">
+      <h2 id="t-servicos">O que eu faço</h2>
+      <div class="servicos">
+        <article class="servico" data-preview="site">
+          <h3>Sites que trazem clientes</h3>
+          <div>
+            <p>Uma página rápida, bonita no celular e feita para virar contato. Quem procurar seu serviço no Google encontra você e fala direto no WhatsApp.</p>
+            <ul>
+              <li>Botão de WhatsApp, mapa, horários e avaliações</li>
+              <li>Aparecer no Google da sua cidade</li>
+              <li>Domínio próprio e hospedagem configurados</li>
+            </ul>
+          </div>
+        </article>
+        <article class="servico" data-preview="automacao">
+          <h3>Automações com IA</h3>
+          <div>
+            <p>Tarefas repetitivas saem das suas mãos: responder dúvidas, agendar, lembrar o cliente e organizar os pedidos numa planilha.</p>
+            <ul>
+              <li>Atendimento automático no WhatsApp</li>
+              <li>Lembretes que reduzem faltas</li>
+              <li>Relatórios que chegam sozinhos no seu e-mail</li>
+            </ul>
+          </div>
+        </article>
+        <article class="servico servico--destaque" data-preview="completo">
+          <h3>Site e automação juntos</h3>
+          <div>
+            <p>O site atrai o cliente e a automação cuida dele daí em diante. Ninguém fica sem resposta, nem de madrugada.</p>
+            <ul>
+              <li>Tudo do site e da automação</li>
+              <li>Manutenção mensal: ajustes, hospedagem e acompanhamento</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- História da automação: a seção fica presa na tela e a rolagem conduz a cena -->
+    <section class="historia" id="automacao" aria-labelledby="t-historia">
+      <div class="historia__dentro">
+        <header class="historia__topo">
+          <h2 id="t-historia">Por trás de uma resposta automática</h2>
+          <ol class="historia__passos">
+            <li data-etapa="1">A Marina pede um orçamento pelo site às 23h.</li>
+            <li data-etapa="2">A IA lê a mensagem e entende o pedido: orçamento, sábado, 3 pessoas.</li>
+            <li data-etapa="3">Ela recebe a resposta no WhatsApp na hora, com preço e horário.</li>
+            <li data-etapa="4">O contato entra na planilha e o dono só é avisado do que importa.</li>
+          </ol>
+          <div class="historia__progresso" aria-hidden="true"><span></span></div>
+        </header>
+
+        <div class="cena">
+          <svg class="cena__linhas" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+            <path id="l1" d="M290,260 L380,260"/>
+            <path id="l2" d="M600,240 C650,240 650,75 700,75"/>
+            <path id="l3" d="M600,260 L700,260"/>
+            <path id="l4" d="M600,280 C650,280 650,445 700,445"/>
+          </svg>
+
+          <div class="no no--form">
+            <p class="no__rotulo">Formulário do site</p>
+            <div class="campo"><span>Nome</span><b data-digitar>Marina</b></div>
+            <div class="campo campo--grande"><span>Mensagem</span><b data-digitar>Quanto fica corte e barba para 3 pessoas no sábado?</b></div>
+            <span class="no__botao">Enviar</span>
+          </div>
+
+          <div class="no no--ia">
+            <p class="no__rotulo">IA lê a mensagem</p>
+            <ul class="etiquetas">
+              <li class="etiqueta etiqueta--forte">Orçamento</li>
+              <li class="etiqueta">Sábado</li>
+              <li class="etiqueta">3 pessoas</li>
+            </ul>
+          </div>
+
+          <div class="no no--whats">
+            <p class="no__rotulo">WhatsApp da Marina</p>
+            <p class="no__balao">Oi, Marina! Corte e barba para 3 fica R$ 150. Sábado tenho 9h livre. Quer reservar?</p>
+          </div>
+
+          <div class="no no--planilha">
+            <p class="no__rotulo">Planilha de contatos</p>
+            <table>
+              <tr><th>Nome</th><th>Pedido</th><th>Status</th></tr>
+              <tr><td>Lucas</td><td>Corte</td><td>Agendado</td></tr>
+              <tr><td>Ana</td><td>Barba</td><td>Respondido</td></tr>
+              <tr class="linha-nova"><td>Marina</td><td>Orçamento</td><td>Respondido</td></tr>
+            </table>
+          </div>
+
+          <div class="no no--dono">
+            <p class="no__rotulo">Celular do dono</p>
+            <p class="notificacao"><b>Novo orçamento</b>Marina, 3 pessoas, sábado. Já respondido.</p>
+          </div>
+        </div>
+
+        <p class="historia__fim">Tudo em poucos segundos, sem ninguém tocar no celular.</p>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section class="secao" id="projetos" aria-labelledby="t-projetos">
+      <h2 id="t-projetos">Projetos</h2>
+
+      <article class="projeto">
+        <div class="projeto__imagens">
+          <img class="projeto__site" src="img/projetos/bemestar-site.png" width="1366" height="900" loading="lazy"
+               alt="Página inicial do site da farmácia Bem Estar Online, com busca, categorias e destaque de assinatura de remédios.">
+          <img class="projeto__app" src="img/projetos/bemestar-app.png" width="506" height="993" loading="lazy"
+               alt="Aplicativo mostrando o pedido saindo para entrega, com o entregador no mapa de Cajamar.">
+        </div>
+        <div class="projeto__texto">
+          <h3>Bem Estar Online</h3>
+          <p class="projeto__resumo">Farmácia virtual de bairro: o cliente compra pelo site ou pelo app, envia a foto da receita e acompanha o entregador no mapa em tempo real.</p>
+          <ul class="projeto__feitos">
+            <li>Site, painel da farmácia e aplicativo para cliente e entregador</li>
+            <li>Estoque que se atualiza sozinho a cada venda</li>
+            <li>Acessibilidade com tradutor de Libras e modo de alto contraste</li>
+            <li>69 testes automáticos rodando a cada atualização</li>
+          </ul>
+          <p class="projeto__tecnologias">C# e ASP.NET Core, .NET MAUI, MySQL, JavaScript, Docker e GitHub Actions</p>
+          <a class="link-forte" href="https://github.com/mrg-exe/BemEstarOnline-PIM-IV" target="_blank" rel="noopener">Ver o código no GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Como funciona: sequência real, por isso numerada -->
+    <section class="secao" id="como-funciona" aria-labelledby="t-como">
+      <h2 id="t-como">Como funciona</h2>
+      <ol class="etapas">
+        <li>
+          <h3>Conversa</h3>
+          <p>Você me conta como o negócio funciona e onde perde tempo ou clientes. Sem custo.</p>
+        </li>
+        <li>
+          <h3>Proposta</h3>
+          <p>Mando por escrito o que vou fazer, o prazo e o preço fechado. Nada de surpresa no fim.</p>
+        </li>
+        <li>
+          <h3>Construção</h3>
+          <p>Você acompanha cada etapa e pede ajustes antes de ir ao ar.</p>
+        </li>
+        <li>
+          <h3>No ar e cuidado</h3>
+          <p>Publico, ensino você a usar e, se quiser, cuido de tudo todo mês.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Sobre -->
+    <section class="secao sobre" id="sobre" aria-labelledby="t-sobre">
+      <div class="sobre__foto" data-foto>
+        <span aria-hidden="true">F</span>
+      </div>
+      <div class="sobre__texto">
+        <h2 id="t-sobre">Prazer, sou o Filipe</h2>
+        <p>Estou me formando em Análise e Desenvolvimento de Sistemas e moro em Cajamar, SP. Gosto de pegar um processo que toma o dia de alguém e fazer ele andar sozinho.</p>
+        <p>Construo sistemas completos, do banco de dados ao aplicativo, e uso inteligência artificial no dia a dia. Agora coloco isso a serviço de pequenos negócios que querem atender melhor sem trabalhar mais.</p>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato" aria-labelledby="t-contato">
+      <h2 id="t-contato">Vamos ver o que dá para automatizar no seu negócio?</h2>
+      <p>Me conte o que você faz e onde perde tempo. Respondo no mesmo dia.</p>
+      <a class="botao botao--claro" data-whatsapp href="#contato">Chamar no WhatsApp</a>
+      <ul class="contato__links">
+        <li data-se="email"><a data-email href="#">E-mail</a></li>
+        <li data-se="linkedin"><a data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li data-se="github"><a data-github href="#" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© <span data-ano>2026</span> Filipe. Sites e automações com IA.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animacoes.js"></script>
+</body>
+</html>
